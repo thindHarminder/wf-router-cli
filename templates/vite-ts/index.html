@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webflow Router App</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <header data-router-persist="true">
+      <h1>My Webflow SPA</h1>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+      </nav>
+    </header>
+    <main id="app-content">
+      <p>Loading...</p>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

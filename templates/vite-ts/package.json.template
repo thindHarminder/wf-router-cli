@@ -1,0 +1,24 @@
+{
+  "name": "{{PROJECT_NAME}}",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "npm run generate-routes && vite",
+    "build": "npm run generate-routes && tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "generate-routes": "generate-webflow-routes --pages-dir=src/app-pages --output-dir=src --output-file=generated-wf-routes.ts"
+  },
+  "dependencies": {
+    "webflow-router": "VERSION_PLACEHOLDER",
+    "@vue/reactivity": "^3.x.x"
+  },
+  "devDependencies": {
+    "vite": "^5.x.x",
+    "typescript": "^5.x.x",
+    "@typescript-eslint/eslint-plugin": "^7.x.x",
+    "@typescript-eslint/parser": "^7.x.x",
+    "eslint": "^8.x.x"
+  }
+}

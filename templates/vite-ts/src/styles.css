@@ -1,0 +1,17 @@
+/* Add some basic styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+header {
+  background: #333;
+  color: white;
+  padding: 1em;
+}
+nav a {
+  color: lightblue;
+  margin-right: 1em;
+}
+main {
+  padding: 1em;
+}
