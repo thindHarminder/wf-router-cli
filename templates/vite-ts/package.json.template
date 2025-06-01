@@ -19,6 +19,6 @@
     "typescript": "^5.x.x",
     "@typescript-eslint/eslint-plugin": "^7.x.x",
     "@typescript-eslint/parser": "^7.x.x",
-    "eslint": "^8.x.x"
+    "eslint": "^9.28.x"
   }
 }

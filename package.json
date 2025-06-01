@@ -1,6 +1,6 @@
 {
   "name": "wfrouter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "CLI to set up a new Vite project with Webflow Router Kit.",
   "type": "module",
   "bin": {
