@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "generate-routes": "generate-webflow-routes --pages-dir=src/app-pages --output-dir=src --output-file=generated-wf-routes.ts"
+    "deploy": "pnpx wrangler pages deploy dist --project-name {{PROJECT_NAME}} --branch main"
   },
   "dependencies": {
     "webflow-router": "VERSION_PLACEHOLDER",

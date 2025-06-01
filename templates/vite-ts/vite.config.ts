@@ -17,4 +17,17 @@ export default defineConfig({
       origin: "*",
     },
   },
+  build: {
+    outDir: "dist",
+    rollupOptions: {
+      input: resolve(__dirname, "src/main.ts"), // Explicitly set the entry
+      output: {
+        entryFileNames: "index.js", // Always output as index.js
+        // Optionally, you can also control chunk naming:
+        // chunkFileNames: "chunks/[name]-[hash].js",
+        // assetFileNames: "assets/[name]-[hash][extname]",
+      },
+    },
+    emptyOutDir: true,
+  },
 });
