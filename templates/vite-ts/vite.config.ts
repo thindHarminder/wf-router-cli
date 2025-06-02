@@ -1,18 +1,28 @@
 import { defineConfig } from "vite";
 import { resolve } from "path";
+import glob from "fast-glob";
 
-// https://vitejs.dev/config/
+const pageFiles = glob.sync("src/pages/**/+page.ts");
+const layoutFiles = glob.sync("src/pages/**/+layout.ts");
+
+const input: Record<string, string> = {
+  index: resolve(__dirname, "src/main.ts"),
+};
+
+for (const file of [...pageFiles, ...layoutFiles]) {
+  // Remove "src/" and ".ts" for output path, keep folder structure
+  const outPath = file.replace(/^src\//, "").replace(/\.ts$/, ".js");
+  input[outPath] = resolve(__dirname, file);
+}
+
 export default defineConfig({
-  plugins: [], // Add any default Vite plugins you want
+  root: ".",
   resolve: {
     alias: {
-      "@": resolve(__dirname, "./src"),
+      "webflow-router-kit": resolve(__dirname, "../src/index.ts"),
     },
   },
   server: {
-    fs: {
-      strict: false,
-    },
     cors: {
       origin: "*",
     },
@@ -20,12 +30,14 @@ export default defineConfig({
   build: {
     outDir: "dist",
     rollupOptions: {
-      input: resolve(__dirname, "src/main.ts"), // Explicitly set the entry
+      input,
       output: {
-        entryFileNames: "index.js", // Always output as index.js
-        // Optionally, you can also control chunk naming:
-        // chunkFileNames: "chunks/[name]-[hash].js",
-        // assetFileNames: "assets/[name]-[hash][extname]",
+        entryFileNames: (chunk) => {
+          // For main entry
+          if (chunk.name === "index") return "index.js";
+          // For pages/layouts, keep their relative path
+          return "[name]";
+        },
       },
     },
     emptyOutDir: true,
