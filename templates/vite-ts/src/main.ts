@@ -2,12 +2,12 @@ import { WebflowRouter } from "webflow-router";
 import type { RouterOptions } from "webflow-router";
 import { generatedRoutes } from "./generated-wf-routes";
 
-const isProd = import.meta.env.PROD;
+const routerOptions: RouterOptions = {};
 
-const routerOptions: RouterOptions = {
-  pageScriptBasePath: isProd ? "/pages" : "/src/pages",
-};
-
-const router = new WebflowRouter(generatedRoutes, routerOptions);
+const router = new WebflowRouter(
+  generatedRoutes,
+  import.meta.env.PROD,
+  routerOptions
+);
 
 router.start();
