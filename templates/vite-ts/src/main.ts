@@ -1,9 +1,11 @@
-import { WebflowRouter } from "webflow-router"; // Assuming this is your actual package name
+import { WebflowRouter } from "webflow-router";
 import type { RouterOptions } from "webflow-router";
 import { generatedRoutes } from "./generated-wf-routes";
 
+const isProd = import.meta.env.PROD;
+
 const routerOptions: RouterOptions = {
-  pageScriptBasePath: "/src/app-pages",
+  pageScriptBasePath: isProd ? "/pages" : "/src/pages",
 };
 
 const router = new WebflowRouter(generatedRoutes, routerOptions);
