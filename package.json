@@ -8,8 +8,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "deploy:npm": "pnpm build && pnpm publish"
+    "deploy:npm": "pnpm publish"
   },
   "keywords": [
     "webflow",
