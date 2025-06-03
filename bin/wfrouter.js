@@ -6,12 +6,13 @@ import fs from "fs-extra";
 import path from "path";
 import { fileURLToPath } from "url";
 import { execa } from "execa";
+import slugify from "slugify";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const program = new Command();
 
-const LATEST_WEBFLOW_ROUTER_VERSION = "0.1.15";
+const LATEST_WEBFLOW_ROUTER_VERSION = "0.1.21";
 
 // --- INIT COMMAND ---
 async function initProject(projectNameArg, options) {
@@ -88,6 +89,7 @@ async function initProject(projectNameArg, options) {
     );
     let packageJsonContent = packageJsonTemplate
       .replace("{{PROJECT_NAME}}", projectName)
+      .replace("{{PROJECT_SLUG}}", slugify(projectName, { lower: true }))
       .replace('"VERSION_PLACEHOLDER"', `"^${LATEST_WEBFLOW_ROUTER_VERSION}"`);
     await fs.writeFile(
       path.join(projectPath, "package.json"),
