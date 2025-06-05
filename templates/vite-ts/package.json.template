@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "npm run generate-routes && vite",
-    "build": "npm run generate-routes && tsc && vite build",
+    "dev": "pnpm run generate-routes && vite",
+    "build": "pnpm run generate-routes && tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "generate-routes": "generate-webflow-routes --pages-dir=src/pages --output-dir=src --output-file=generated-wf-routes.ts",
