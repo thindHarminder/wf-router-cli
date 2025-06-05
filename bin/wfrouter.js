@@ -12,7 +12,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const program = new Command();
 
-const LATEST_WEBFLOW_ROUTER_VERSION = "0.1.28";
+const LATEST_WEBFLOW_ROUTER_VERSION = "0.1.30";
 
 // --- INIT COMMAND ---
 async function initProject(projectNameArg, options) {
